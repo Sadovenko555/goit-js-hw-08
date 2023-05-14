@@ -7,11 +7,11 @@ import { galleryItems } from './gallery-items';
 console.log(galleryItems);
 
 const galleryList = document.querySelector('.gallery');
-const createGalleryItemMarkup = makeCardsMurkup(galleryItems);
+const createGalleryItem = createImages(galleryItems);
 
-galleryList.insertAdjacentHTML('afterbegin', createGalleryItemMarkup);
+galleryList.insertAdjacentHTML('afterbegin', createGalleryItem);
 
-function makeCardsMurkup(galleryItems) {
+function createImages(galleryItems) {
   return galleryItems
     .map(
       ({ description, original, preview }) =>
@@ -28,7 +28,7 @@ function makeCardsMurkup(galleryItems) {
     .join('');
 }
 
-var lightbox = new SimpleLightbox('.gallery a', {
+let lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
   captionPosition: 'bottom',
